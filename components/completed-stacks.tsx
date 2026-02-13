@@ -11,41 +11,37 @@ type CompletedStacksProps = {
 
 export function CompletedStacks({ completedStacks, onBack, onNewStack }: CompletedStacksProps) {
   return (
-    <div className="min-h-screen bg-[#F4DEC1] pb-24">
+    <div className="min-h-screen bg-[#F4DEC1]  px-11 pb-38">
       {/* Header */}
-      <div className="pt-12 pb-6 px-6">
+      <div className="pt-12 pb-6 flex items-center justify-center">
         <div className="relative inline-block">
-          <div className="bg-white stamp-border px-8 py-4 relative">
-            <h1 className="text-2xl font-black tracking-tight leading-tight">
+          <div className="bg-white stamp-border px-8 py-4 relative"
+            style={{transform: "rotate(-2.5deg)"}}>
+            <h1 className="text-3xl text-center font-black tracking-tight leading-tight"
+            >
               COMPLETED<br />STAMP STACKS
             </h1>
             {/* Decorative stars */}
-            <div className="absolute -left-6 bottom-2">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path
-                  d="M16 4l3.09 9.51h10l-8.09 5.88 3.09 9.51L16 23.02 7.91 28.9l3.09-9.51L2.91 13.51h10z"
-                  fill="#9ec7ff"
-                  stroke="black"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
-            <div className="absolute -right-6 -top-4">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path
-                  d="M14 2l2.06 6.34h6.66l-5.39 3.92 2.06 6.34L14 14.68 8.61 18.6l2.06-6.34-5.39-3.92h6.66z"
-                  fill="#FF9BBE"
-                  stroke="black"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
+             <div className="absolute -left-7 -bottom-4">
+                  <img
+                    src="/vector.svg"
+                    alt="decorative star"
+                    className="w-11 h-11"
+                  />
+                </div>
+                <div className="absolute -right-5 -top-5">
+                  <img
+                    src="/star.svg"
+                    alt="decorative star"
+                    className="w-12 h-12"
+                  />
+                </div>
           </div>
         </div>
       </div>
 
       {/* Completed Stamp Cards */}
-      <div className="px-6 grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         {completedStacks.map((stack) => {
           const completionDate = new Date()
           const monthYear = completionDate.toLocaleDateString('en-US', { 
@@ -95,25 +91,6 @@ export function CompletedStacks({ completedStacks, onBack, onNewStack }: Complet
         </button>
       </div>
 
-      {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white stamp-border mx-4 mb-4">
-        <div className="flex items-center justify-around py-4 relative">
-          <button onClick={onBack} className="p-3">
-            <HomeIcon className="w-8 h-8" strokeWidth={2.5} />
-          </button>
-          
-          <button 
-            onClick={onNewStack}
-            className="absolute left-1/2 -translate-x-1/2 -top-6 bg-[#FF9BBE] stamp-button p-4 rounded-lg"
-          >
-            <Plus className="w-8 h-8" strokeWidth={3} />
-          </button>
-          
-          <button className="p-3">
-            <Archive className="w-8 h-8" strokeWidth={2.5} />
-          </button>
-        </div>
-      </div>
     </div>
   )
 }

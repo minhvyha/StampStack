@@ -83,9 +83,13 @@ export function Home() {
           };
 
           // Check if stack is completed (100%)
-          if (newProgress === stack.total) {
+          if (newProgress === stack.total && completedStack) {
             setCompletedStack(updatedStack);
             setShowCompletion(true);
+            // Move to completed stacks
+            setCompletedStacks((prev) => [...prev, completedStack]);
+            // Remove from active stacks
+            setStacks((prev) => prev.filter((s) => s.id !== completedStack.id));
           }
           // Check for milestone progress (25%, 50%, 75%)
           else if (
@@ -106,14 +110,11 @@ export function Home() {
 
   const handleCompletionClose = () => {
     if (completedStack) {
-      // Move to completed stacks
-      setCompletedStacks((prev) => [...prev, completedStack]);
-      // Remove from active stacks
-      setStacks((prev) => prev.filter((s) => s.id !== completedStack.id));
       // Clear selected stack and close modal
       setSelectedStack(null);
       setShowCompletion(false);
       setCompletedStack(null);
+      setShowArchive(true); // Show archive after completion
     }
   };
 
@@ -227,11 +228,14 @@ export function Home() {
         })()}
 
       {!selectedStack && !showNewStack && !showArchive && !editingStack && (
-        <div className="min-h-screen bg-[#FFF3EA] pb-24 px-11">
+        <div className="min-h-screen bg-[#FFF3EA] pb-38 px-11">
           {/* Header */}
           <div className="pt-11 pb-11">
             <div className="flex justify-center">
-              <div className=" stamp-border bg-[#F2F2F2] px-8 py-4 relative" style={{transform: "rotate(-3deg)"}}>
+              <div
+                className=" stamp-border bg-[#F2F2F2] px-8 py-4 relative"
+                style={{ transform: "rotate(-3deg)" }}
+              >
                 <h1 className="text-3xl font-black tracking-tight">
                   STAMP STACK
                 </h1>
@@ -258,10 +262,10 @@ export function Home() {
           <div className=" grid grid-cols-2 gap-4">
             {stacks.map((stack) => (
               <StampCard
-              key={stack.id}
-              stack={stack}
-              rotate={Math.random() * 4 - 2} // Random rotation between -2 and 2 degrees
-              onClick={() => setSelectedStack(stack.id)}
+                key={stack.id}
+                stack={stack}
+                rotate={Math.random() * 4 - 2} // Random rotation between -2 and 2 degrees
+                onClick={() => setSelectedStack(stack.id)}
               />
             ))}
 
@@ -279,16 +283,6 @@ export function Home() {
             </button>
           </div>
 
-
-
-          {/* Modals */}
-          {showCompletion && completedStack && (
-            <CompletionModal
-              stack={completedStack}
-              onClose={handleCompletionClose}
-            />
-          )}
-
           {showProgress && progressStack && (
             <ProgressModal
               stack={progressStack}
@@ -303,6 +297,10 @@ export function Home() {
         <CompletionModal
           stack={completedStack}
           onClose={handleCompletionClose}
+          onHome={() => {
+            setShowCompletion(false);
+            setSelectedStack(null);
+          }}
         />
       )}
 
@@ -312,36 +310,35 @@ export function Home() {
           onClose={() => setShowProgress(false)}
         />
       )}
-                {/* Bottom Navigation */}
-          <div className="fixed bottom-0 left-0 right-0 bg-[#F2F2F2] stamp-border nav-border mx-11 mb-10">
-            <div className="flex justify-between px-11 py-[18px] relative">
-              <button
-                className=" border-none! shadow-none!"
-                onClick={() => {
-                  setSelectedStack(null);
-                  setShowNewStack(false);
-                  setShowArchive(false);
-                }}
-              >
-                <img src="/home.svg" alt="" />
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#F2F2F2] stamp-border nav-border mx-11 mb-10">
+        <div className="flex justify-between px-11 py-[18px] relative">
+          <button
+            className=" border-none! shadow-none!"
+            onClick={() => {
+              setSelectedStack(null);
+              setShowNewStack(false);
+              setShowArchive(false);
+            }}
+          >
+            <img src="/home.svg" alt="" />
+          </button>
 
-              </button>
+          <button
+            onClick={() => setShowNewStack(true)}
+            className="absolute left-1/2 -translate-x-1/2 -top-6 bg-[#FF9BBE] stamp-button w-16 h-16 flex justify-center items-center rounded-[5px]"
+          >
+            <Plus className="w-8 h-8" strokeWidth={2} />
+          </button>
 
-              <button
-                onClick={() => setShowNewStack(true)}
-                className="absolute left-1/2 -translate-x-1/2 -top-6 bg-[#FF9BBE] stamp-button w-16 h-16 flex justify-center items-center rounded-[5px]"
-              >
-                <Plus className="w-8 h-8" strokeWidth={2} />
-              </button>
-
-              <button
-                className=" border-none! shadow-none!"
-                onClick={() => setShowArchive(true)}
-              >
-                <img src="/archive.svg" alt="" />
-              </button>
-            </div>
-          </div>
+          <button
+            className=" border-none! shadow-none!"
+            onClick={() => setShowArchive(true)}
+          >
+            <img src="/archive.svg" alt="" />
+          </button>
+        </div>
+      </div>
     </>
   );
 }
