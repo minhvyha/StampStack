@@ -30,13 +30,13 @@ export function EditStampStack({ stack, onBack, onSave }: EditStampStackProps) {
           <ArrowLeft className="w-6 h-6" strokeWidth={3} />
         </button>
 
-        <div className="flex-1 stamp-border bg-white px-4 py-2" style={{ transform: "rotate(-1deg)" }}>
+        <div className="flex-1 stamp-border bg-white px-3 py-2" style={{ transform: "rotate(-1deg)" }}>
           <h1 className="text-2xl font-black tracking-tight">EDIT STAMP STACK</h1>
         </div>
       </div>
 
       {/* Form */}
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-8">
         {/* What do you want to do */}
         <div>
           <div className="border-l-4 border-black pl-2 mb-3">

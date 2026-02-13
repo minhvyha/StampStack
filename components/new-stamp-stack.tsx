@@ -36,7 +36,7 @@ export function NewStampStack({ onBack, onCreate }: NewStampStackProps) {
       </div>
 
       {/* Form */}
-      <div className=" mt-8 space-y-6">
+      <div className=" mt-8 space-y-8">
         {/* What do you want to do */}
         <div>
           <div className="border-l-4 border-black pl-2 mb-3">

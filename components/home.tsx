@@ -319,6 +319,7 @@ export function Home() {
               setSelectedStack(null);
               setShowNewStack(false);
               setShowArchive(false);
+              setEditingStack(null);
             }}
           >
             <img src="/home.svg" alt="" />
