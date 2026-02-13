@@ -28,7 +28,7 @@ export function NewStampStack({ onBack, onCreate }: NewStampStackProps) {
         <button onClick={onBack} className="stamp-button bg-white p-3">
           <ArrowLeft className="w-6 h-6" strokeWidth={3} />
         </button>
-        <div className="flex-1 stamp-border bg-white px-4 py-2"
+        <div className="flex-1 stamp-border bg-white px-3 py-2"
         style={{transform: "rotate(-1deg)"}}
         >
           <h1 className="text-2xl font-black tracking-tight">NEW STAMP STACK</h1>
@@ -49,7 +49,7 @@ export function NewStampStack({ onBack, onCreate }: NewStampStackProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="E.G. TRY SOMETHING NEW"
-            className="w-full stamp-border bg-white px-4 py-4 text-base font-medium placeholder:text-gray-400 focus:outline-none"
+            className="w-full stamp-border bg-white px-4 py-4 text-base font-medium placeholder:text-[#757575] focus:outline-none"
           />
         </div>
 
@@ -101,8 +101,8 @@ export function NewStampStack({ onBack, onCreate }: NewStampStackProps) {
               }`}
             >
               <div
-                className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white border-2 border-black transition-all ${
-                  showReward ? "right-1" : "left-1"
+                className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full  border-2 border-black transition-all ${
+                  showReward ? "right-1 bg-white" : "left-1 bg-[#FF9BBE]"
                 }`}
               />
             </button>
@@ -117,7 +117,7 @@ export function NewStampStack({ onBack, onCreate }: NewStampStackProps) {
                 disabled={!showReward}
                 onChange={(e) => setReward(e.target.value)}
                 placeholder="TYPE REWARD HERE..."
-                className="flex-1 text-base font-medium placeholder:text-gray-400 focus:outline-none"
+                className="flex-1 text-base font-medium placeholder:text-[#757575] focus:outline-none"
               />
             </div>
         </div>

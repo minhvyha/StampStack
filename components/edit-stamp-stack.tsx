@@ -48,7 +48,7 @@ export function EditStampStack({ stack, onBack, onSave }: EditStampStackProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="E.G. TRY SOMETHING NEW"
-            className="w-full stamp-border bg-white px-4 py-4 text-base font-medium placeholder:text-gray-400 focus:outline-none"
+            className="w-full stamp-border bg-white px-4 py-4 text-base font-medium placeholder:text-[#757575] focus:outline-none"
           />
         </div>
 
@@ -115,7 +115,7 @@ export function EditStampStack({ stack, onBack, onSave }: EditStampStackProps) {
               disabled={!showReward}
               onChange={(e) => setReward(e.target.value)}
               placeholder="TYPE REWARD HERE..."
-              className="flex-1 text-base font-medium placeholder:text-gray-400 focus:outline-none"
+              className="flex-1 text-base font-medium placeholder:text-[#757575] focus:outline-none"
             />
           </div>
         </div>

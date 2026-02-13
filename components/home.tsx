@@ -325,7 +325,9 @@ export function Home() {
           </button>
 
           <button
-            onClick={() => setShowNewStack(true)}
+            onClick={() => {
+              setShowArchive(false);
+              setShowNewStack(true)}}
             className="absolute left-1/2 -translate-x-1/2 -top-6 bg-[#FF9BBE] stamp-button w-16 h-16 flex justify-center items-center rounded-[5px]"
           >
             <Plus className="w-8 h-8" strokeWidth={2} />

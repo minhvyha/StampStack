@@ -67,7 +67,7 @@ export function StampDetail({
             {stack.stamps.map((stamped, index) => (
               <div
                 key={index}
-                className="aspect-square rounded-full border-3 border-gray-400 bg-[#F2F2F2] flex  items-center justify-center"
+                className="aspect-square rounded-full border-3 border-[#757575] bg-[#F2F2F2] flex  items-center justify-center"
                 style={{
                   borderStyle: stamped ? "solid" : "dashed",
                   borderColor: stamped ? "#000" : "#9ca3af",
