@@ -25,14 +25,7 @@ export function ProgressModal({ stack, onClose }: ProgressModalProps) {
         <div className="flex flex-col items-center">
           {/* Decorative stars */}
           <div className="absolute top-24 left-12">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path
-                d="M20 4l3.09 9.51h10l-8.09 5.88 3.09 9.51L20 23.02 11.91 28.9l3.09-9.51L6.91 13.51h10z"
-                fill="#fef3c7"
-                stroke="black"
-                strokeWidth="2"
-              />
-            </svg>
+            <img src="/yellowstar.svg" alt="" />
           </div>
 
           {/* Big star with percentage */}

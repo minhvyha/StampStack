@@ -84,10 +84,10 @@ export function CompletedStacks({ completedStacks, onBack, onNewStack }: Complet
         {/* Find More Stamp Stacks */}
         <button
           onClick={onNewStack}
-          className="col-span-2 w-full border-4 border-dashed border-gray-400 bg-[#F4DEC1] p-12 flex flex-col items-center justify-center gap-4 hover:border-gray-600 transition-colors"
+          className="col-span-2 w-full border-4 border-dashed border-gray-400 bg-[#F4DEC1] p-12 flex flex-col items-center justify-center gap-4 hover:border-[#757575] transition-colors"
         >
           <div className="w-16 h-16 rounded-full border-3 border-gray-400 flex items-center justify-center">
-            <Plus className="w-8 h-8 text-gray-600" strokeWidth={3} />
+            <Plus className="w-8 h-8 text-[#757575]" strokeWidth={3} />
           </div>
           <span className="text-sm font-bold text-gray-500 tracking-wide text-center">
             FIND MORE STAMP STACKS TO FILL

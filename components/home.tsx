@@ -268,7 +268,7 @@ export function Home() {
             {/* New Stamp Stack Card */}
             <button
               onClick={() => setShowNewStack(true)}
-              className=" rounded-[5px] border-4 border-dashed! shadow-none! border-[#757575]!  px-4 py-7 flex flex-col items-center justify-center gap-3 hover:border-gray-600 transition-colors"
+              className=" rounded-[5px] border-4 border-dashed! shadow-none! border-[#757575]!  px-4 py-7 flex flex-col items-center justify-center gap-3 hover:border-[#757575] transition-colors"
             >
               <div className="w-7 h-7 rounded-full border-[2.5px] border-[#757575]! flex items-center justify-center">
                 <Plus className="w-4 h-4 text-[#757575]" strokeWidth={3} />

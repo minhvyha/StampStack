@@ -22,7 +22,7 @@ export function StampCard({ stack, onClick, rotate = 1 }: StampCardProps) {
         {/* Content */}
       <div className="flex-1 p-4 text-left bg-[#F4DEC1]">
         <h3 className="text-lg font-bold tracking-tight mb-2">{stack.title}</h3>
-        <p className="text-sm text-gray-600 font-medium mb-2">
+        <p className="text-sm text-[#757575] font-medium mb-2">
           {stack.progress} / {stack.total}
         </p>
         
